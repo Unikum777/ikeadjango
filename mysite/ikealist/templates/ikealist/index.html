@@ -1,0 +1,16 @@
+{% if  all_ikea_items%}
+    <ul>
+    {% for item in all_ikea_items %}
+    <li><a href="{% url 'ikealist:detail' item.id %}">{{ item }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No ikea items are available.</p>
+{% endif %}
+
+<form action="{% url 'ikealist:add' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name='article' id="article" value="Введите цифровой код товара" />
+    <label for="article">Введите артикул</label><br />
+    <input type="submit" value="Vote" />
+</form>
