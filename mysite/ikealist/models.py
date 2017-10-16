@@ -29,4 +29,4 @@ class IkeaItem(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
-        return '%s, %dруб.' % (self.title, self.price)
+        return ('%s, %s руб.' % (self.title, self.price))
